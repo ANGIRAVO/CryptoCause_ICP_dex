@@ -1,6 +1,37 @@
 # Cryptocause - Web3 Charity dApp on ICP
 
 A decentralized crypto-charity donation platform built on the Internet Computer Protocol (ICP) using ckUSDT tokens for transparent, secure, and efficient charitable giving.
+ It enables users to create and manage charity campaigns, make transparent donations using **ckUSDT stablecoin**, and receive unique **NFT receipts** as proof of their contributions, all managed securely on-chain.
+
+
+## Visual Overview
+
+```mermaid
+flowchart TD
+    A0["Canister Backend
+"]
+    A1["Wallet & Identity Management
+"]
+    A2["Campaign Management System
+"]
+    A3["ckUSDT Token Service
+"]
+    A4["NFT Receipt System
+"]
+    A5["Frontend User Interface
+"]
+    A6["Deployment and Build Process
+"]
+    A5 -- "Authenticates users via" --> A1
+    A5 -- "Interacts with" --> A0
+    A0 -- "Implements logic for" --> A2
+    A0 -- "Performs token operations via" --> A3
+    A0 -- "Mints NFTs via" --> A4
+    A5 -- "Queries balance from" --> A3
+    A5 -- "Displays NFTs from" --> A4
+    A6 -- "Deploys" --> A0
+    A6 -- "Builds & deploys" --> A5
+```
 
 ## 🌟 Features
 
