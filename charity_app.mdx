@@ -1,0 +1,99 @@
+# Prompt: Build Web3 Crypto-Charity dApp on ICP with ckUSDT
+
+**Title:**  
+Develop a Web3-based  Crypto-Charity Donation Platform on ICP Supporting ckUSDT
+
+---
+
+## Description  
+Build a decentralized charity platform similar to Saweria, but fully on‑chain, powered by the Internet Computer (ICP). Provide a seamless donation experience where users can donate using ckUSDT — a wrapped USDT token on ICP — via Web3 wallet integration. The platform should include transparent donation records, optional escrow or milestone-based releases, and the issuance of NFT-based donor receipts.
+
+---
+
+## 🔧 Feature Requirements
+
+| Requirement             | Details |
+|-------------------------|---------|
+| **Wallet Integration**  | Connect via Plug, Stoic, or Internet Identity for authentication. |
+| **Token Support**       | Focus on **ckUSDT** (wrapped ERC‑20 USDT on ICP). |
+| **Donation Modules**    | Canister functions like `donate(amount, campaignId)`, `getDonations(campaignId)`, `withdrawFunds(recipientId)`. |
+| **Escrow / Milestone Management** | Implement mechanisms for controlled fund release (time-based or DAO voting). |
+| **Transparency Dashboard** | On-chain view: donor, amount, timestamp; UI visualization. |
+| **Receipt NFTs (Optional)** | Mint an NFT (e.g., ICRC-721) upon donation as proof of donation. |
+| **Frontend**            | React + TypeScript with Web3 agent (`@dfinity/agent`) and ledger interactions. |
+| **Backend**             | ICP Canister logic in Rust or Motoko, storing donation data on-chain. |
+
+---
+
+## 🚀 Technical Stack
+
+- **Blockchain Layer:**  
+  - **ckUSDT** minted and managed via ICRC‑1/2 token canisters (wrapped USDT on ICP).  
+  - Use standard `transfer` / `balanceOf` interfaces for donation transfers.
+
+- **Canister Components:**  
+  - **Donation Canister:**  
+    - `donate(campaignId: Text, amount: Nat, donor: Principal)`  
+    - `getDonations(campaignId)` → `[Donation]`  
+    - `withdraw(campaignId, recipientPrincipal)`  
+  - **NFT Canister (Optional):** Mint receipt NFT per donor.
+
+- **Frontend Flow:**  
+  1. User connects wallet (Plug / Stoic / II)  
+  2. Select donation amount in ckUSDT  
+  3. `approve` ckUSDT transfer  
+  4. Call `donate(...)` method via agent to canister  
+  5. Display real-time donation listing
+
+- **Bridge Process:**  
+  - Users obtain ckUSDT by bridging USDT from Ethereum/BSC via protocols like Appic Bridge or OneSec.  
+  - ckUSDT is tokens compatible with ICP wallets and can be used on-chain with low-fee transactions.
+
+---
+
+## 🛠️ Developer Tasks
+
+1. **Integrate ckUSDT Token:**
+   - Use ICRC-1 canister interface in frontend.
+   - Ensure liquidity and balance management.
+
+2. **Implement Donation Canister:**
+   - Store data structures for donation or campaign.
+   - Validate calls and permissions.
+   - On-chain event logs for each `donate()`.
+
+3. **Frontend Components:**
+   - Wallet connection screen.
+   - Campaign listing & donation input.
+   - Real-time donation tracking.
+
+4. **Optional Features:**
+   - Escrow or time-locked withdrawal.
+   - NFT minting for each donor.
+   - Admin dashboard for campaign creators (with `withdraw`, stats).
+
+5. **Testing & Deployment:**
+   - Deploy on ICP Testnet.
+   - Simulate USDT bridging, donation flows, withdrawal flows.
+   - Final deployment to ICP Mainnet for hackathon submission.
+
+---
+
+## 🎯 Why This Setup Works
+
+- **Seamless Donor Experience:** Users donate stablecoins (USDT) without worrying about volatile crypto.  
+- **On‑chain Transparency:** Every donation is recorded and verifiable publicly.  
+- **ICP's Interoperability:** Use of ckUSDT exemplifies chain‑key cross‑chain integration.  
+- **Optional Innovation Layers:** Escrow, DAO governance, NFT receipts add trust & engagement.
+
+---
+
+Use this prompt to:
+
+- Guide your development team in building the dApp.  
+- Populate issues & to-dos in your project repo.  
+- Describe the technical flow clearly in your pitch deck.
+
+---
+
+Ready to move? Let me know if you want code examples for canisters or front-end components! 😊
