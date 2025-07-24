@@ -1,6 +1,6 @@
-# CharityChain - Web3 Charity dApp on ICP
+# Cryptocause - Web3 Charity dApp on ICP
 
-A decentralized charity donation platform built on the Internet Computer Protocol (ICP) using ckUSDT tokens for transparent, secure, and efficient charitable giving.
+A decentralized crypto-charity donation platform built on the Internet Computer Protocol (ICP) using ckUSDT tokens for transparent, secure, and efficient charitable giving.
 
 ## 🌟 Features
 
